@@ -1,6 +1,8 @@
 import pygame
 import sys
 import day
+from game import Game
+from athlete import Athlete
 
 class GameGUI:
     def __init__(self, width, height):
@@ -47,4 +49,7 @@ class GameGUI:
 # Example usage:
 if __name__ == "__main__":
     gui = GameGUI(800, 600)
-    gui.play_game()
+    player_athlete = Athlete(speed=5.0, threshold=160, vo2max=55)
+    opponent_athlete = Athlete(speed=4.5, threshold=155, vo2max=50)
+    game = Game(player_athlete, opponent_athlete)
+    gui.play_game(game.create_days_array)
